@@ -1,0 +1,304 @@
+openapi: 3.0.0
+info:
+  title: Physical AI & Humanoid Robotics Book API
+  description: API for accessing book content, modules, and resources
+  version: 1.0.0
+servers:
+  - url: https://api.physical-ai-book.com/v1
+    description: Production server
+  - url: https://staging-api.physical-ai-book.com/v1
+    description: Staging server
+
+paths:
+  /modules:
+    get:
+      summary: List all available modules
+      description: Retrieve a list of all book modules with basic information
+      responses:
+        '200':
+          description: List of modules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Module'
+
+  /modules/{moduleId}:
+    get:
+      summary: Get module details
+      description: Retrieve detailed information about a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the module
+      responses:
+        '200':
+          description: Module details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '404':
+          description: Module not found
+
+  /modules/{moduleId}/content:
+    get:
+      summary: Get module content
+      description: Retrieve the full content of a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the module
+      responses:
+        '200':
+          description: Module content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModuleContent'
+        '404':
+          description: Module not found
+
+  /modules/{moduleId}/labs:
+    get:
+      summary: List hands-on labs for a module
+      description: Retrieve all hands-on labs associated with a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the module
+      responses:
+        '200':
+          description: List of hands-on labs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lab'
+        '404':
+          description: Module not found
+
+  /resources:
+    get:
+      summary: List all resources
+      description: Retrieve all available resources including diagrams, code examples, etc.
+      parameters:
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [diagram, code, architecture, tutorial]
+          description: Filter resources by type
+      responses:
+        '200':
+          description: List of resources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Resource'
+
+components:
+  schemas:
+    Module:
+      type: object
+      required:
+        - id
+        - name
+        - title
+        - description
+        - learningObjectives
+        - contentPath
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the module
+        name:
+          type: string
+          description: Module name (e.g., "ROS 2 Fundamentals")
+        title:
+          type: string
+          description: Display title for the module
+        description:
+          type: string
+          description: Brief overview of the module content
+        learningObjectives:
+          type: array
+          items:
+            type: string
+          description: Specific skills/knowledge learners will gain
+        prerequisites:
+          type: array
+          items:
+            type: string
+          description: Knowledge/skills required before starting
+        duration:
+          type: string
+          description: Estimated time to complete the module
+        contentPath:
+          type: string
+          description: File path to the module's content
+        hasLabs:
+          type: boolean
+          description: Whether the module includes hands-on labs
+        order:
+          type: integer
+          description: Order in the book sequence
+
+    ModuleContent:
+      type: object
+      required:
+        - moduleId
+        - content
+        - pages
+      properties:
+        moduleId:
+          type: string
+          description: ID of the module
+        content:
+          type: string
+          description: Full content of the module in Markdown format
+        pages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentPage'
+        relatedModules:
+          type: array
+          items:
+            type: string
+          description: IDs of related modules
+
+    ContentPage:
+      type: object
+      required:
+        - id
+        - title
+        - content
+        - module
+        - order
+        - type
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the page
+        title:
+          type: string
+          description: Page title
+        content:
+          type: string
+          description: Markdown content of the page
+        module:
+          type: string
+          description: Reference to the parent module
+        order:
+          type: integer
+          description: Order within the module
+        type:
+          type: string
+          enum: [concept, tutorial, lab, resource]
+          description: Type of content
+        relatedPages:
+          type: array
+          items:
+            type: string
+          description: Links to related content
+
+    Lab:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - objectives
+        - requirements
+        - steps
+        - validation
+        - module
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the lab
+        title:
+          type: string
+          description: Lab title
+        description:
+          type: string
+          description: Brief overview of the lab
+        objectives:
+          type: array
+          items:
+            type: string
+          description: What learners will achieve
+        requirements:
+          type: array
+          items:
+            type: string
+          description: Software/hardware needed
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabStep'
+        validation:
+          type: string
+          description: How to verify successful completion
+        module:
+          type: string
+          description: Reference to the parent module
+
+    LabStep:
+      type: object
+      required:
+        - stepNumber
+        - description
+      properties:
+        stepNumber:
+          type: integer
+          description: Sequential step number
+        description:
+          type: string
+          description: Detailed step instructions
+        expectedOutcome:
+          type: string
+          description: What should happen after completing the step
+
+    Resource:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - filePath
+        - type
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the resource
+        title:
+          type: string
+          description: Resource title
+        description:
+          type: string
+          description: What the resource illustrates or contains
+        filePath:
+          type: string
+          description: Path to the resource file
+        type:
+          type: string
+          enum: [diagram, code, architecture, tutorial, other]
+          description: Type of resource
+        module:
+          type: string
+          description: Module this resource belongs to (optional)

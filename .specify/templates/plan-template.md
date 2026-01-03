@@ -31,7 +31,14 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Based on the Physical AI & Humanoid Robotics Constitution, ensure the following principles are addressed:
+
+- **Accuracy First**: All technical explanations must be correct, reproducible, and aligned with industry standards
+- **Learning by Building**: Concepts are taught through hands-on examples, simulations, and projects
+- **Simulation to Reality**: Emphasize sim-to-real transfer wherever possible
+- **Open & Accessible**: Content must be beginner-friendly while remaining technically deep
+- **Modular Knowledge**: Each module should stand alone but integrate smoothly into the whole system
+- **Technical Excellence**: All code examples, simulations, and implementations must meet high standards of quality, performance, and maintainability
 
 ## Project Structure
 

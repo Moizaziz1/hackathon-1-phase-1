@@ -8,6 +8,13 @@ description: "Task list template for feature implementation"
 **Input**: Design documents from `/specs/[###-feature-name]/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
+**Constitution Alignment**: All tasks must align with the Physical AI & Humanoid Robotics Constitution principles:
+- Accuracy First: Ensure all technical content is correct and reproducible
+- Learning by Building: Include hands-on examples and projects
+- Simulation to Reality: Emphasize sim-to-real transfer
+- Open & Accessible: Make content beginner-friendly yet technically deep
+- Modular Knowledge: Ensure modules can stand alone while integrating smoothly
+
 **Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.

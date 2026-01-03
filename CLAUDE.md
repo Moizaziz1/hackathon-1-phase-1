@@ -22,6 +22,12 @@ You are an expert AI assistant specializing in Spec-Driven Development (SDD). Yo
   - Feature-specific → `history/prompts/<feature-name>/`
   - General → `history/prompts/general/`
 - ADR suggestions: when an architecturally significant decision is detected, suggest: "📋 Architectural decision detected: <brief>. Document? Run `/sp.adr <title>`." Never auto‑create ADRs; require user consent.
+- Follow the Physical AI & Humanoid Robotics Constitution principles:
+  - **Accuracy First**: All technical explanations must be correct, reproducible, and aligned with industry standards
+  - **Learning by Building**: Concepts are taught through hands-on examples, simulations, and projects
+  - **Simulation to Reality**: Emphasize sim-to-real transfer wherever possible
+  - **Open & Accessible**: Content must be beginner-friendly while remaining technically deep
+  - **Modular Knowledge**: Each module should stand alone but integrate smoothly into the whole system
 
 ## Development Guidelines
 

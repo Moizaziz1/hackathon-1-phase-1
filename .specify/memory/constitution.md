@@ -1,55 +1,63 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: N/A (initial constitution) → 1.0.0
+- Modified principles: N/A (new principles added)
+- Added sections: Purpose, Core Principles (6), Target Audience, Technology Stack, Success Criteria
+- Removed sections: N/A
+- Templates requiring updates:
+  - .specify/templates/plan-template.md ✅ updated
+  - .specify/templates/spec-template.md ✅ updated
+  - .specify/templates/tasks-template.md ✅ updated
+  - .specify/templates/commands/*.md ✅ updated
+- Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics Constitution
+
+## Purpose
+This project aims to create a structured, high-quality technical book focused on Physical AI and Humanoid Robotics. The book bridges artificial intelligence and embodied robotic systems, guiding learners from simulation to real-world deployment.
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Accuracy First
+All technical explanations must be correct, reproducible, and aligned with industry standards. This ensures that learners can trust the content and successfully implement the concepts in real-world scenarios.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Learning by Building
+Concepts are taught through hands-on examples, simulations, and projects. This principle ensures that theoretical knowledge is immediately applied, reinforcing understanding through practical implementation.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Simulation to Reality (NON-NEGOTIABLE)
+Emphasize sim-to-real transfer wherever possible. All examples and projects must demonstrate how concepts apply in both simulated and real-world environments, preparing learners for actual robotics deployment.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Open & Accessible
+Content must be beginner-friendly while remaining technically deep. This ensures the material is approachable for newcomers while providing sufficient depth for experienced practitioners.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Modular Knowledge
+Each module should stand alone but integrate smoothly into the whole system. This allows learners to focus on specific areas of interest while building a comprehensive understanding over time.
 
-### [PRINCIPLE_6_NAME]
+### VI. Technical Excellence
+All code examples, simulations, and implementations must meet high standards of quality, performance, and maintainability. This ensures that learners develop good practices from the start.
 
+## Target Audience
+- AI engineers transitioning into robotics
+- Robotics students and researchers
+- Software engineers interested in embodied intelligence
+- Advanced learners familiar with Python and basic ML concepts
 
-[PRINCIPLE__DESCRIPTION]
+## Technology Stack
+- Docusaurus (Book & Docs)
+- ROS 2
+- Gazebo & Unity
+- NVIDIA Isaac Sim & Isaac ROS
+- Python, C++
+- OpenAI APIs (Whisper, LLMs)
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Success Criteria
+- Clear explanations of Physical AI concepts
+- Working simulations and example code
+- A complete capstone humanoid robotics project
+- Deployed book on GitHub Pages
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution establishes the foundational principles that govern all development, documentation, and decision-making within the Physical AI & Humanoid Robotics project. All contributors must adhere to these principles when making technical decisions, writing content, or implementing features.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-25 | **Last Amended**: 2025-12-25

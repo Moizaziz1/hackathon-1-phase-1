@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell \"Get-ChildItem -Path ''D:\\\\Hackathon Book\\\\AI_Robotics\\\\docs'' -Recurse -Name | Where-Object { $_-like ''*.md'' } | Select-Object -First 10\")"
+    ]
+  }
+}
